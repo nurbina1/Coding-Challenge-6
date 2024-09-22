@@ -32,3 +32,11 @@ let employees = [
       ]
     }
   ];
+  
+const displayEmployeeShifts = (employee) => {
+    console.log(`Employee: ${employee.name}`);
+    console.log("Shifts:");
+    employee.shifts.forEach(shift => {
+      console.log(`Day: ${shift.day}, Hours: ${shift.hours}`);
+    });
+};

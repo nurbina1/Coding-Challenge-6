@@ -72,3 +72,15 @@ const calculateTotalHours = (employeeName) => {
     return totalHours;
   };
   
+const listAvailableEmployees = (day) => {
+    let availableEmployees = employees.filter(employee => {
+      return !employee.shifts.some(shift => shift.day === day);
+    });
+  
+    if (availableEmployees.length > 0) {
+      console.log(`Employees available on ${day}:`);
+      availableEmployees.forEach(employee => console.log(employee.name));
+    } else {
+      console.log(`No employees available on ${day}.`);
+    }
+  };

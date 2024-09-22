@@ -57,4 +57,18 @@ const assignShift = (employeeName, day, hours) => {
       console.log(`Shift assigned: ${employeeName} will work on ${day} for ${hours} hours.`);
     }
 };
+
+const calculateTotalHours = (employeeName) => {
+    let employee = employees.find(emp => emp.name === employeeName);
+  
+    if (!employee) {
+      console.log(`Error: Employee with name ${employeeName} not found.`);
+      return;
+    }
+  
+    let totalHours = employee.shifts.reduce((total, shift) => total + shift.hours, 0);
+    console.log(`${employeeName} has worked a total of ${totalHours} hours this week.`);
+    
+    return totalHours;
+  };
   

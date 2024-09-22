@@ -40,3 +40,21 @@ const displayEmployeeShifts = (employee) => {
       console.log(`Day: ${shift.day}, Hours: ${shift.hours}`);
     });
 };
+
+const assignShift = (employeeName, day, hours) => {
+    let employee = employees.find(emp => emp.name === employeeName);
+  
+    if (!employee) {
+      console.log(`Error: Employee with name ${employeeName} not found.`);
+      return;
+    }
+    let shiftExists = employee.shifts.some(shift => shift.day === day);
+  
+    if (shiftExists) {
+      console.log(`Error: ${employeeName} already has a shift on ${day}.`);
+    } else {
+      employee.shifts.push({ day, hours });
+      console.log(`Shift assigned: ${employeeName} will work on ${day} for ${hours} hours.`);
+    }
+};
+  
